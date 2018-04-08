@@ -114,6 +114,7 @@ S3Adapter.prototype.uploadFile = function (file, callback) {
 			Key: fullpath,
 			Body: fileStream,
 			ACL: 'public-read',
+			ContentType: file.mimetype,
 		}, self._awsParams());
 
 		s3.upload(params, function (err, data) {
